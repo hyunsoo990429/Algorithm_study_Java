@@ -7,22 +7,20 @@ import java.util.StringTokenizer;
 
 public class N2525 {
 
-public static void main(String[] args) throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-    int h = Integer.parseInt(st.nextToken());
-    int m = Integer.parseInt(st.nextToken());
+        int h = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int plusM = Integer.parseInt(br.readLine());
 
-    if (m < 45) {
-        m += 60;
-        h = (h == 0) ? 23 : h - 1;
+        int temp = (m + plusM) % 60;
+        h = (h + (m + plusM) / 60) % 24;
+        m = temp;
+
+        System.out.println(h + " " + m);
+
+        br.close();
     }
-
-    m -= 45;
-
-    System.out.println(h + " " + m);
-
-    br.close();
-}
 }
