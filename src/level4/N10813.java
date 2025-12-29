@@ -2,7 +2,7 @@ package level4;
 
 import java.util.Scanner;
 
-public class N10810 {
+public class N10813 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -11,14 +11,18 @@ public class N10810 {
 
         int[] arr = new int[N];
 
-        while(M > 0) {
-            int i = sc.nextInt();
-            int j = sc.nextInt();
-            int k = sc.nextInt();
+        for (int i = 0; i < N; i++) {
+            arr[i] = i + 1;
+        }
 
-            for (int l = (i - 1); l < j; l++) {
-                arr[l] = k;
-            }
+        while(M > 0) {
+            int i = sc.nextInt() - 1;
+            int j = sc.nextInt() - 1;
+            int temp = 0;
+
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
 
             M--;
         }
