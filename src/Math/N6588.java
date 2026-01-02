@@ -1,40 +1,41 @@
 package Math;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class N9020 {
+public class N6588 {
 
-    static boolean[] isPrime = new boolean[10001];
-    static int r = 2;
-    static int n;
+    static boolean[] isPrime = new boolean[1000001];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(br.readLine());
+
         //prime();
         primeWithAlgo();
+        String input;
 
-        while(T > 0 ) {
-            int n = Integer.parseInt(br.readLine());
-            int a = n / 2;
-            int b = n / 2;
+        while (!(input = br.readLine()).equals("0")){
+            int n = Integer.parseInt(input);
+
+            int a = 3;
+            int b = n - 3;
 
             while (true) {
+
                 if (isPrime[a] && isPrime[b]) {
-                    System.out.println(a + " " + b);
+                    System.out.println(n + " = " + a + " + " + b);
                     break;
                 }
 
-                a--;
-                b++;
+                a += 2;
+                b -= 2;
             }
-
-            T--;
         }
     }
 
     static void prime() {
-        for (int i = 1; i <= 10000; i++) {
+        for (int i = 1; i < isPrime.length; i++) {
             isPrime[i] = true;
 
             for (int j = 2; j * j <= i; j++) {
