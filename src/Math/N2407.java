@@ -1,39 +1,31 @@
 package Math;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
 
 public class N2407 {
-
-    static List<Integer> result = new ArrayList<>();
-    static int n;
-    static int m;
-    static Long count = 0L;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        combi(1, 0);
-        System.out.println(count);
-    }
+        BigInteger[][] arr = new BigInteger[101][101];
 
-    static void combi(int start, int level) {
-        if (level == m) {
-            count++;
+        for (int i = 1; i <= n; i++) {
+            for(int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    arr[i][j] = BigInteger.ONE;
+                }else {
+                    arr[i][j] = arr[i - 1][j - 1].add(arr[i - 1][j]);
+                }
+            }
         }
 
-        for (int i = start; i <= n; i++) {
-            result.add(i);
-            combi(i + 1, level + 1);
-            result.remove(result.size() - 1);
-        }
+        System.out.println(arr[n][m]);
     }
+
 }
