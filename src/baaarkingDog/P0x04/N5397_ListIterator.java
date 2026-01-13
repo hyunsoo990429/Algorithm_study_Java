@@ -3,7 +3,7 @@ package baaarkingDog.P0x04;
 import java.io.*;
 import java.util.*;
 
-public class N5397_LinkedIterator {
+public class N5397_ListIterator {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -3,7 +3,7 @@ package baaarkingDog.P0x04;
 import java.io.*;
 import java.util.*;
 
-public class N7308 {
+public class N7308_LinkedList {
 
     public static void main(String[] args) throws IOException {
         List<String> list = new LinkedList<>();
